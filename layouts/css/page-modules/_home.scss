@@ -190,7 +190,9 @@
   border-color: hsl(0, 0%, 29%);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px),
+screen and (max-width: 780px) and (min-height: 1100px)
+{
   #home-intro {
     padding: unset;
     position: absolute;
@@ -199,5 +201,4 @@
     transform: translate(-50%, -50%);
     min-width: $body-max-width * .75;
   }
-  
 }
