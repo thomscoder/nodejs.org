@@ -117,6 +117,14 @@ const mainLocale = (selectedLocales && selectedLocales[0]) || 'en';
 // Initializes the server and mounts it in the generated build directory.
 http
   .createServer((req, res) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'sameorigin');
+    if (process.env.NODE_ENV === 'Production') {
+      res.setHeader(
+        'Strict-Transport-Security',
+        'max-age=31536000; includeSubDomains'
+      );
+    }
     // If we are accessing the root, it should be redirected to the default language,
     // We shouldn't get a 404 page.
 
